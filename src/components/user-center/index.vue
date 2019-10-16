@@ -13,25 +13,36 @@
         :currentIndex="currentIndex"
       ></switches>
     </div>
+    <div
+      class="play-btn"
+      ref="playBtn"
+      @click="random"
+    >
+      <i class="icon-play"></i>
+    </div>
   </div>
 </template>
 
 <script>
-//import x from ''
+import Switches from 'base/switches'
 export default {
-  name: '',
+  name: 'user-center',
   components: {
-
+    Switches
   },
-  directives() { },
+  directives: {},
   filters: {},
   extends: {},
   mixins: {},
   props: {},
   data() {
     return {
-
-    };
+      switches: [
+        { name: '我喜欢的' },
+        { name: '最近听的' }
+      ],
+      currentIndex: 0
+    }
   },
   beforeCreate() { },
   //生命周期 - 创建之前
@@ -58,11 +69,20 @@ export default {
 
   },
   methods: {
-
+    switchItem(index) {
+      this.currentIndex = index
+    }
   },
 }
 </script>
 
-<style lang='scss' scoped>
-//@import url()
+<style lang='stylus' scoped>
+@import '~common/stylus/variable'
+.user-center
+  position fixed
+  top 0
+  bottom 0
+  z-index 100
+  width 100%
+  background $color-background
 </style>

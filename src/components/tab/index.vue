@@ -1,13 +1,32 @@
 <template>
-  <div class="m-header">
-    <div class="icon"></div>
-    <h1 class="text">Chicken Music</h1>
+  <div class="tab">
     <router-link
       tag="div"
-      class="mine"
-      to="/user"
+      class="tab-item"
+      to="/recommend"
     >
-      <i class="icon-mine"></i>
+      <span class="tab-link">推荐</span>
+    </router-link>
+    <router-link
+      tag="div"
+      class="tab-item"
+      to="/singer"
+    >
+      <span class="tab-link">歌手</span>
+    </router-link>
+    <router-link
+      tag="div"
+      class="tab-item"
+      to="/rank"
+    >
+      <span class="tab-link">排行</span>
+    </router-link>
+    <router-link
+      tag="div"
+      class="tab-item"
+      to="/search"
+    >
+      <span class="tab-link">搜索</span>
     </router-link>
   </div>
 </template>
@@ -15,7 +34,7 @@
 <script>
 //import x from ''
 export default {
-  name: 'm-header',
+  name: 'tab',
   components: {
 
   },
@@ -27,7 +46,7 @@ export default {
   data() {
     return {
 
-    };
+    }
   },
   beforeCreate() { },
   //生命周期 - 创建之前
@@ -61,34 +80,19 @@ export default {
 
 <style lang='stylus' scoped>
 @import '~common/stylus/variable'
-@import '~common/stylus/mixin'
-.m-header
-  position relative
+.tab
+  display flex
   height 44px
-  text-align center
-  color $color-theme
-  font-size 0
-  .icon
-    display inline-block
-    vertical-align top
-    margin-top 6px
-    width 30px
-    height 32px
-    margin-right 9px
-    bg-image('logo')
-    background-size 30px 32px
-  .text
-    display inline-block
-    vertical-align top
-    line-height 44px
-    font-size $font-size-large
-  .mine
-    position absolute
-    top 0
-    right 0
-    .icon-mine
-      display block
-      padding 12px
-      font-size 20px
-      color $color-theme
+  line-height 44px
+  font-size @font-size-medium
+  .tab-item
+    flex 1
+    text-align center
+    .tab-link
+      padding-bottom 5px
+      color $color-text-l
+    &.router-link-active
+      .tab-link
+        color $color-theme
+        border-bottom 2px solid $color-theme
 </style>
